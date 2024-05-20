@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="CSS.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
-    <h>Hello Whats up </h>
-    <form action="../functions/api/register.login.js" method="post">
-      <input type="text" name="user-name-1" id="" />
+    <h1>Form to reterive data</h1>
+
+    <form action="../functions/api/register_login.js" method="POST">
+      <label for="fname">User name :</label>
+      <input type="text" name="user-name-1" id="" /><br /><br />
+      <label for="lname">Email address :</label>
       <input type="text" name="email-2" id="" />
-      <!-- <input type="'submit" value="submit" /> -->
-      <button type="submit" form="nameform" value="Submit">Submit</button>
+      <br /><br />
+      <input type="submit" value="submit" />
+
+      <button type="submit" value="submit">Submit</button>
       <!--  You, 1 second ago • Uncommitted changes -->
     </form>
+
+    <br />
   </body>
 </html>
