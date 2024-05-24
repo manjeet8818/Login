@@ -36,18 +36,54 @@
 
 
 
+// export async function onRequestPost(context) {
+//   const formdata = await context.request.formData();
+//   const username = formdata.get('user-name-1');
+//   const password = formdata.get('password-1');
+
+//   // Retrieve user data from KV store
+//   const userData = await context.env.USER_DATA_STORE.get(username);
+//   if (!userData) {
+//     return new Response('Invalid username or password', { status: 401 });
+//   }
+
+//   const { email, password: storedPassword } = JSON.parse(userData);
+
+//   // Encrypt the input password to compare with the stored one
+//   const encoder = new TextEncoder();
+//   const data = encoder.encode(password);
+//   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+//   const hashArray = Array.from(new Uint8Array(hashBuffer));
+//   const encryptedPassword = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+//   if (encryptedPassword !== storedPassword) {
+//     return new Response('Invalid username or password', { status: 401 });
+//   }
+
+//   // Credentials are correct, grant access
+//   return new Response(`Welcome ${username}`);
+// }
+
+
+
 export async function onRequestPost(context) {
   const formdata = await context.request.formData();
   const username = formdata.get('user-name-1');
+  const email = formdata.get('email-1');
   const password = formdata.get('password-1');
+
+  console.log(`Received login attempt for username: ${username}`);
 
   // Retrieve user data from KV store
   const userData = await context.env.USER_DATA_STORE.get(username);
   if (!userData) {
+    console.log(`No user data found for username: ${username}`);
     return new Response('Invalid username or password', { status: 401 });
   }
 
-  const { email, password: storedPassword } = JSON.parse(userData);
+  const { email: storedEmail, password: storedPassword } = JSON.parse(userData);
+
+  console.log(`User data retrieved: ${JSON.stringify({ storedEmail, storedPassword: 'hidden' })}`);
 
   // Encrypt the input password to compare with the stored one
   const encoder = new TextEncoder();
@@ -56,13 +92,14 @@ export async function onRequestPost(context) {
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   const encryptedPassword = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
+  console.log(`Encrypted input password: ${encryptedPassword}`);
+
   if (encryptedPassword !== storedPassword) {
+    console.log('Password mismatch');
     return new Response('Invalid username or password', { status: 401 });
   }
 
+  console.log('Login successful');
   // Credentials are correct, grant access
   return new Response(`Welcome ${username}`);
 }
-
-
-
