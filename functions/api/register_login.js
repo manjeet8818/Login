@@ -23,9 +23,10 @@ export async function onRequestPost(context) {
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   const encryptedPassword = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
-  // Store the username, email, and encrypted password
-  await context.env.USER_DATA_STORE.put(username,email, JSON.stringify({ password: encryptedPassword }));
+  // Store the username and encrypted password
+  await context.env.USER_DATA_STORE.put(username, JSON.stringify({ email, password: encryptedPassword }));
 
   return new Response(`${username} - ${email}`);
 }
+
 
