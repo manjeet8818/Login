@@ -4,21 +4,45 @@
     <link rel="stylesheet" href="CSS.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Login Screen</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
   </head>
   <body>
-    <h1>Form to reterive data</h1>
-
-    <form action="/api/register_login" method="POST">
+    <!-- <form action="/api/register_login" method="POST">
       <label for="fname">User name :</label>
       <input type="text" name="user-name-1" id="" /><br /><br />
       <label for="lname">Email address :</label>
       <input type="text" name="email-1" id="" />
       <br /><br />
       <input type="submit" value="submit" />
-      <!--  You, 1 second ago • Uncommitted changes -->
-    </form>
+    </form> -->
 
+    <div class="container">
+      <h2>Login form</h2>
+      <form class="form-horizontal" action="/api/register_login" method="POST">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="email">Email:</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="user-name-1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="pwd">Password:</label>
+          <div class="col-sm-10">          
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="email-1">
+          </div>
+        </div>
+        <div class="form-group">        
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default" value="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    
     <br />
   </body>
 </html>
