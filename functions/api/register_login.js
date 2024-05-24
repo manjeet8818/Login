@@ -10,7 +10,7 @@
 
 export async function onRequestPost(context) {
   const formdata = await context.request.formData();
-  const username = formdata.get('user-name-1');
+  // const username = formdata.get('user-name-1');
   const email = formdata.get('email-1');
   const password = formdata.get('password-1');
 
@@ -22,8 +22,8 @@ export async function onRequestPost(context) {
   const encryptedPassword = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
   // Store the username, email, and encrypted password
-  await context.env.USER_DATA_STORE.put(username, JSON.stringify({ email, password: encryptedPassword }));
+  await context.env.USER_DATA_STORE.put(JSON.stringify({ email, password: encryptedPassword }));
 
-  return new Response(`${username} - ${email}`);
+  return new Response(`${email} - ${password}`);
 }
 
