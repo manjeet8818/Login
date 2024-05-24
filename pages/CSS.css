@@ -5,3 +5,7 @@ form.form-example {
 div.form-example {
     display: table-row;
 }
+
+h1 {
+    color: brown;
+}
