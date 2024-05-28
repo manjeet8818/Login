@@ -1,77 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-
-    <link rel="stylesheet" href="pages/CSS.css">
-    <link rel="stylesheet" href="pages/login.css">
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login Screen</title>
-    
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
-
-  </head>
-  
-  <!-- <body>
-
-    <div class="background">
-      <div class="shape"></div>
-      <div class="shape"></div>
-    </div>
-    
-    <form action="/api/register_login" method="POST">
-      <h3>Login Here</h3>
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" placeholder="Username" name="user-name-1" required>
-      
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email-1" required>
-  
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password-1" required>
-  
-      <button type="submit" value="submit">Login</button>
-    </form>
-
-    <div id="error-message" style="color: red; display: none;">Invalid username or password</div>
-    <script src="script"></script>
-
-  </body> -->
 
 
-  <body>
 
-    <button action="/api/formbutton" class="open-button" onclick="openForm()">Open Form</button>
+<body>
 
-    <div class="form-popup" id="myForm">
+  <button action="/api/formbutton" class="open-button" onclick="openForm()">Open Form</button>
 
-    <div class="background">
-      <div class="shape"></div>
-      <div class="shape"></div>
-    </div>
+  <div class="form-popup" id="myForm">
 
-    <form id="login-form" action="/api/register_login" method="POST">
-      <h3>Login Here</h3>
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" placeholder="Username" name="user-name-1" required>
-      
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email-1" required>
-  
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password-1" required>
-  
-      <button type="submit" value="submit">Login</button>
-    </form>
-
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
   </div>
 
-    <!-- <div id="error-message" style="color: red; display: none;">Invalid username or password</div>
-    <script src="script.js"></script> -->
+  <form id="login-form" action="/api/register_login" method="POST">
+    <h3>Login Here</h3>
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" placeholder="Username" name="user-name-1" required>
+    
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email-1" required>
 
-    </body>
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Enter password" name="password-1" required>
+
+    <button type="submit" value="submit">Login</button>
+  </form>
+
+</div>
+
+  <!-- <div id="error-message" style="color: red; display: none;">Invalid username or password</div>
+  <script src="script.js"></script> -->
+
+  </body>
 </html>
