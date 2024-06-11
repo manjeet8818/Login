@@ -9,11 +9,29 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleRegister = async () => {
+    try {
+      const response = await axios.post('https://your-worker-url/api/register', {
+        username,
+        email,
+        password,
+      });
+
+      if (response.status === 201) {
+        alert('User registered successfully');
+      } else {
+        setErrorMessage('User already exists');
+      }
+    } catch (error) {
+      setErrorMessage('User already exists');
+    }
+  };
+
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/register_login', {
+      const response = await axios.post('https://your-worker-url/api/register_login', {
         username,
         password,
       });
@@ -34,7 +52,7 @@ const LoginForm = () => {
         <div className="shape"></div>
         <div className="shape"></div>
       </div>
-      <form id="login-form" onSubmit={handleSubmit}>
+      <form id="login-form" onSubmit={handleLogin}>
         <h3>Login Here</h3>
         {errorMessage && <div className="error-message">{errorMessage}</div>}
         <label htmlFor="username">Username</label>
@@ -65,6 +83,7 @@ const LoginForm = () => {
           required
         />
         <button type="submit">Login</button>
+        <button type="button" onClick={handleRegister}>Register</button>
       </form>
     </div>
   );
