@@ -11,7 +11,7 @@ const LoginForm = () => {
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post('https://login-ac3.pages.dev/api/register', {
+      const response = await axios.post('/api/register', {
         username,
         email,
         password,
@@ -31,7 +31,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://login-ac3.pages.dev/api/register_login', {
+      const response = await axios.post('/api/register_login', {
         username,
         password,
       });
